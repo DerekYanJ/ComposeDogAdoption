@@ -71,4 +71,3 @@ fun DogDetail(dog: Dog, onAdoptClick: (Dog) -> Unit = {}) {
         }
     }
 }
-
