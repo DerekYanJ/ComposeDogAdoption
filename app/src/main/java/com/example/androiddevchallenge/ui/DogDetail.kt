@@ -17,11 +17,18 @@ package com.example.androiddevchallenge.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.Card
+import androidx.compose.material.Text
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Button
+import androidx.compose.material.ProvideTextStyle
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -58,14 +65,13 @@ fun DogDetail(dog: Dog, onAdoptClick: (Dog) -> Unit = {}) {
                 ProvideTextStyle(MaterialTheme.typography.h5) {
                     Text(text = "年龄：${dog.age}岁")
                     Text(text = "地址：${dog.address}")
-
-                    Button(
-                        { onAdoptClick(dog) },
-                        Modifier
-                            .padding(top = 10.dp)
-                    ) {
-                        Text(text = "Adopt")
-                    }
+                }
+                Button(
+                    { onAdoptClick(dog) },
+                    Modifier
+                        .padding(top = 10.dp)
+                ) {
+                    Text(text = "Adopt")
                 }
             }
         }

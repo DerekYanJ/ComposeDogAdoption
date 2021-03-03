@@ -7,7 +7,7 @@
 
 ## :scroll: Description
 <!--- Describe your app in one or two sentences -->
-It's a fake puppy adoption app, for the #AndroidDevChallenge of Jetpack Compose.
+It's a puppy adoption app, for the #AndroidDevChallenge of Jetpack Compose.
 
 ## :bulb: Motivation and Context
 <!--- Optionally point readers to interesting parts of your submission. -->
