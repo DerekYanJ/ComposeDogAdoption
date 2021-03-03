@@ -51,7 +51,6 @@ fun DogList(dogList: List<Dog>, onClick: (Dog) -> Unit = {}) {
 
 @Composable
 fun DogCard(dog: Dog, onClick: (Dog) -> Unit = {}) {
-//    val dog = Dog("狗狗", 3, R.drawable.abc_ic_ab_back_material, "北京")
     Card(
         modifier = Modifier
             .fillMaxWidth()
