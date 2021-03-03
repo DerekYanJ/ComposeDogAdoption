@@ -15,23 +15,28 @@
  */
 package com.example.androiddevchallenge.ui
 
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.androiddevchallenge.MainViewModel
+import kotlinx.coroutines.launch
 
 @Composable
 fun MainUi() {
+    val shs = SnackbarHostState()
+    val cs = rememberCoroutineScope()
     Scaffold(
         topBar = {
             TopAppBar(
                 title = {
-                    Text("宠物领养")
+                    Text("Puppy Adoption")
                 },
             )
         },
+        snackbarHost = {
+            SnackbarHost(shs)
+        }
     ) {
         val viewModel: MainViewModel = viewModel()
         val currentDogBean = viewModel.currentDogBean
@@ -42,7 +47,11 @@ fun MainUi() {
             }
         }
         if (currentDogBean != null) {
-            DogDetail(currentDogBean)
+            DogDetail(currentDogBean) {
+                cs.launch {
+                    shs.showSnackbar("You have adopted ${currentDogBean.name}")
+                }
+            }
         }
     }
 }

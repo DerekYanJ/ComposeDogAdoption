@@ -22,6 +22,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -35,7 +36,9 @@ import com.example.androiddevchallenge.bean.Dog
 @Composable
 fun DogList(dogList: List<Dog>, onClick: (Dog) -> Unit = {}) {
     LazyColumn(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize(),
+        contentPadding = PaddingValues(10.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         items(dogList) { dog ->
             DogCard(
@@ -49,9 +52,8 @@ fun DogList(dogList: List<Dog>, onClick: (Dog) -> Unit = {}) {
 @Composable
 fun DogCard(dog: Dog, onClick: (Dog) -> Unit = {}) {
 //    val dog = Dog("狗狗", 3, R.drawable.abc_ic_ab_back_material, "北京")
-    Column(
+    Card(
         modifier = Modifier
-            .padding(start = 10.dp, end = 10.dp)
             .fillMaxWidth()
             .clickable { onClick.invoke(dog) }
     ) {
