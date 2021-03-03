@@ -53,14 +53,8 @@ fun DogDetail(dog: Dog, onAdoptClick: (Dog) -> Unit = {}) {
                 .clip(RoundedCornerShape(4.dp)),
             contentScale = ContentScale.Crop
         )
-
-        Card(
-            Modifier.padding(10.dp, 8.dp)
-                .fillMaxWidth()
-        ) {
-            Column (
-                Modifier.padding(10.dp)
-            ){
+        Card(Modifier.padding(10.dp, 10.dp).fillMaxWidth()) {
+            Column (Modifier.padding(10.dp)){
                 Text("名字: ${dog.name}", style = MaterialTheme.typography.h4)
                 ProvideTextStyle(MaterialTheme.typography.h5) {
                     Text(text = "年龄：${dog.age}岁")
